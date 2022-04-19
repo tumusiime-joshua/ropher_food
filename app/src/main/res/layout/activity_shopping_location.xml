@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShoppingLocationActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/shopping_location_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/main_color"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Choose Preferred Location"
+        app:titleTextColor="#fff" />
+
+    <LinearLayout
+        android:layout_marginTop="20sp"
+        android:layout_below="@id/admin_home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="10dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="70sp"
+            android:textStyle="bold"
+            android:padding="20sp"
+            android:text="Nakasero Market"
+            android:textColor="@color/white"
+            android:gravity="left|center"
+            android:textAlignment="gravity"
+            android:background="@color/white"
+            android:drawablePadding="20sp"
+            android:id="@+id/nakaseroBtn"/>
+
+
+    </LinearLayout>
+</LinearLayout>

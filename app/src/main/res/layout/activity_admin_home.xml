@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminHomeActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/admin_home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/main_color"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Administrator"
+        app:titleTextColor="#fff" />
+
+    <LinearLayout
+        android:layout_marginTop="20sp"
+        android:layout_below="@id/admin_home_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="10dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="70sp"
+            android:textStyle="bold"
+            android:padding="20sp"
+            android:text="Food items"
+            android:textColor="@color/white"
+            android:gravity="left|center"
+            android:textAlignment="gravity"
+            android:background="@color/white"
+            android:drawableLeft="@drawable/ic_add_circle_outline"
+            android:drawableTint="@color/white"
+            android:drawablePadding="20sp"
+            android:id="@+id/food_items_admin_button"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="70sp"
+            android:textStyle="bold"
+            android:padding="20sp"
+            android:text="View Orders"
+            android:textColor="@color/white"
+            android:gravity="left|center"
+            android:textAlignment="gravity"
+            android:background="#fff"
+            android:drawableLeft="@drawable/ic_shopping_cart"
+            android:drawableTint="@color/white"
+            android:id="@+id/view_orders_admin_button"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="70sp"
+            android:textStyle="bold"
+            android:padding="20sp"
+            android:text="Employees"
+            android:textColor="@color/white"
+            android:gravity="left|center"
+            android:textAlignment="gravity"
+            android:background="#fff"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawableTint="@color/white"
+            android:drawablePadding="20sp"
+            android:id="@+id/employees_admin_button"/>
+
+    </LinearLayout>
+</RelativeLayout>

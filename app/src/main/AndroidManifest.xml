@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ropherfood.client">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ropher_food_new_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ropher_food_new_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.RopherFood"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ShoppingLocationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CategoryItemsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MakeOrdersCategoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".OrderedItemsListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ConfirmOrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EmployeeAccountActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MakeOrderItemDetailsActivity"
+            android:exported="true" />
+        <activity android:name=".MakeOrdersCategorySuperMarketActivity" />
+        <activity android:name=".MakeOrdersCategoryMarketActivity" />
+        <activity android:name=".MakeOrderCategoryActivity" />
+        <activity android:name=".AddFoodItemActivity" />
+        <activity android:name=".EmployeesActivity" />
+        <activity android:name=".ViewOrdersActivity" />
+        <activity android:name=".FoodItemsActivity" />
+        <activity android:name=".MakeOrderActivity" />
+        <activity android:name=".MyOrdersActivity" />
+        <activity android:name=".MyAccountActivity" />
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".AdminHomeActivity" />
+        <activity android:name=".CreateAccountActivity" />
+        <activity android:name=".LogInActivity" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

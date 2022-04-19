@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Ropher Food</string>
+
+
+    <string-array name="account_type_array">
+        <item>Administrator</item>
+        <item>Standard</item>
+    </string-array>
+
+    <string-array name="category">
+        <item>Fruits</item>
+        <item>Eggs</item>
+        <item>Vegetables</item>
+        <item>Sea Foods</item>
+        <item>Cooking oils </item>
+        <item>Sugar</item>
+        <item>Butter and ghee</item>
+        <item>Spices</item>
+        <item>Herbs</item>
+        <item>Cereals</item>
+        <item>Garden Food</item>
+        <item>Fish</item>
+        <item>Meat</item>
+        <item>Bread and Cake</item>
+        <item>Milk and Yoghurt</item>
+        <item>Ice Cream</item>
+        <item>Baking Needs</item>
+        <item>Canned Foods</item>
+        <item>Plastics</item>
+        <item>Condiments and Spices</item>
+        <item>Frozen Meat and Chicken</item>
+        <item>Household</item>
+        <item>Personal Hygiene</item>
+        <item>Breakfast cereals</item>
+        <item>Tea and Coffee</item>
+        <item>Chocolate and Biscuits</item>
+        <item>Bread Spreads</item>
+        <item>Baby Hygiene</item>
+        <item>Water</item>
+        <item>Juice</item>
+        <item>Beer and Wine</item>
+    </string-array>
+</resources>

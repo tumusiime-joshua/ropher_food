@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddFoodItemActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/add_food_items_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/main_color"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="Add Food Item"
+        app:titleTextColor="#fff" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/add_food_items_toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10sp">
+
+            <ImageView
+                android:id="@+id/add_food_item_photo_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="200sp"
+                android:src="@drawable/ic_image" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_margin="10sp"
+                android:id="@+id/add_food_item_image_button_layout"
+                android:layout_below="@id/add_food_item_photo_imageView">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Image"
+                    android:background="@color/main_color"
+                    android:textColor="#fff"
+                    android:id="@+id/add_food_item_image_button"/>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_food_item_image_button_layout"
+                android:id="@+id/add_food_item_name_textInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Food item name"
+                    android:id="@+id/add_food_item_name_editText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_food_item_name_textInputLayout"
+                android:id="@+id/add_food_item_price_textInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Food item price"
+                    android:inputType="number"
+                    android:id="@+id/add_food_item_price_editText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/add_food_item_category_Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_food_item_price_textInputLayout"
+                android:entries="@array/category" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_food_item_category_Spinner"
+                android:id="@+id/add_food_item_description_textInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Food item description"
+                    android:inputType="textMultiLine"
+                    android:minLines="3"
+                    android:id="@+id/add_food_item_description_editText"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_food_item_description_textInputLayout"
+                android:text="Add"
+                android:textSize="20sp"
+                android:textColor="#fff"
+                android:background="@drawable/rounded_rectangle"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:layout_marginBottom="30sp"
+                android:layout_marginTop="30sp"
+                android:id="@+id/add_food_item_button"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/add_food_item_description_textInputLayout"
+                android:text="Update"
+                android:textSize="20sp"
+                android:textColor="#fff"
+                android:background="@drawable/rounded_rectangle"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="30sp"
+                android:layout_marginRight="20sp"
+                android:layout_marginBottom="30sp"
+                android:visibility="gone"
+                android:id="@+id/update_food_item_button"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/main_color"
+        app:title="Food App"
+        android:theme="@style/toolBarTheme"
+        app:titleTextColor="#fff"
+        android:id="@+id/main_toolbar"/>
+
+    <ImageView
+        android:id="@+id/text_heading"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_below="@id/main_toolbar"
+        android:scaleType="centerInside"
+        android:src="@drawable/ropher_food_new_icon"
+        android:layout_margin="20dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/text_heading"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_heading"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/make_order_home_button"
+                    android:layout_width="180dp"
+                    android:layout_height="150dp"
+                    android:background="@color/white"
+                    android:drawableTop="@drawable/ic_storefront"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/white"
+                    android:gravity="center"
+                    android:padding="20sp"
+                    android:text="Make Order"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/orders_home_button"
+                    android:layout_width="180dp"
+                    android:layout_height="150dp"
+                    android:background="@color/white"
+                    android:drawableTop="@drawable/ic_shopping_cart"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/white"
+                    android:gravity="center"
+                    android:padding="20sp"
+                    android:text="View Orders"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/account_home_button"
+                    android:layout_width="180dp"
+                    android:layout_height="150dp"
+                    android:background="@color/white"
+                    android:drawableTop="@drawable/ic_person"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/white"
+                    android:text="Account"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/about_us_home_button"
+                    android:layout_width="180dp"
+                    android:layout_height="150dp"
+                    android:background="@color/white"
+                    android:drawableTop="@drawable/ic_phone"
+                    android:drawablePadding="20sp"
+                    android:drawableTint="@color/white"
+                    android:text="About Us"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

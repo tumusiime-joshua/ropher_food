@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/main_menu_group_items">
+
+        <item android:id="@+id/main_menu_admin"
+            android:title="Admin" />
+
+        <item
+            android:id="@+id/main_menu_about_app"
+            android:title="About App"/>
+
+        <item
+            android:id="@+id/main_menu_log_out_app"
+            android:title="Log out"/>
+
+        <item
+            android:id="@+id/main_menu_exit"
+            android:title="Exit"/>
+    </group>
+
+    <item
+        android:icon="@drawable/ic_shopping_cart"
+        android:iconTint="@color/white"
+        android:id="@+id/cart_menu_item"
+        app:showAsAction="always"
+        android:title="Cart" />
+
+</menu>

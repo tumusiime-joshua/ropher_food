@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Id"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="@color/main_color"
+                android:id="@+id/my_order_list_detail_order_id_textView"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10sp">
+
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Order Id"-->
+                    <!--                    android:textSize="15sp"-->
+                    <!--                    android:textStyle="bold"-->
+                    <!--                    android:textColor="@color/default_color" />-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Item"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Quantity"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ordered on "
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10sp"
+                    android:padding="10sp"
+                    android:gravity="end">
+
+                    <!--                <TextView-->
+                    <!--                    android:layout_width="wrap_content"-->
+                    <!--                    android:layout_height="wrap_content"-->
+                    <!--                    android:text="Order Id"-->
+                    <!--                    android:textSize="15sp"-->
+                    <!--                    android:textStyle="bold"-->
+                    <!--                    android:textColor="@color/default_color"-->
+                    <!--                    android:id="@+id/my_order_list_detail_order_id_textView"/>-->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Food item name"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:id="@+id/my_order_list_detail_name_textView"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Food item quantity"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:id="@+id/my_order_list_detail_quantity_textView"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Food item price"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:id="@+id/my_order_list_detail_price_textView"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date ordered "
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:id="@+id/my_order_list_detail_date_ordered_textView"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:layout_marginRight="10sp"
+                android:drawableTint="@color/main_color"
+                android:id="@+id/my_orders_list_detail_call_textView"
+                android:drawableLeft="@drawable/ic_phone"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:drawableTint="@color/main_color"
+                android:id="@+id/my_orders_list_detail_delete_textView"
+                android:drawableLeft="@drawable/ic_delete"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

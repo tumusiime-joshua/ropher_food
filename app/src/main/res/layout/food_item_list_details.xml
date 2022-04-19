@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15sp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="90sp"
+                android:layout_height="90sp"
+                android:src="@drawable/ic_image"
+                android:id="@+id/food_item_list_detail_imageView"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10sp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Food item name"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/main_color"
+                    android:id="@+id/food_item_list_detail_name_textView"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Food item price"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:id="@+id/food_item_list_detail_price_textView"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Food item category"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:id="@+id/food_item_list_category_textView"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20sp"
+                android:padding="5sp"
+                android:visibility="gone"
+                android:text="Activate"
+                android:textSize="20sp"
+                android:textColor="@color/main_color"
+                android:textStyle="bold"
+                android:id="@+id/food_items_list_detail_active_textView"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20sp"
+                android:padding="5sp"
+                android:visibility="gone"
+                android:text="De-activate"
+                android:textSize="20sp"
+                android:textColor="@color/main_color"
+                android:textStyle="bold"
+                android:id="@+id/food_items_list_detail_de_active_textView"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20sp"
+                android:padding="5sp"
+                android:drawableTint="@color/main_color"
+                android:id="@+id/food_items_list_detail_edit_textView"
+                android:drawableLeft="@drawable/ic_edit"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:drawableTint="@color/main_color"
+                android:id="@+id/food_items_list_detail_delete_textView"
+                android:drawableLeft="@drawable/ic_delete"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
