@@ -39,5 +39,18 @@
         <item>Water</item>
         <item>Juice</item>
         <item>Beer and Wine</item>
+        <item>Butter and Cheese</item>
+        <item>Rice and Pasta</item>
+        <item>Cooking Oil</item>
+        <item>Sugar</item>
+        <item>Snacks and Biscuits</item>
+        <item>Energy Drinks</item>
+        <item>Kitchen ware</item>
+        <item>Stationary</item>
+        <item>Leisure</item>
+        <item>Pet Food</item>
+        <item>Chinese Food</item>
+        <item>Grocery</item>
+        <item>ROPHER Deals</item>
     </string-array>
 </resources>
