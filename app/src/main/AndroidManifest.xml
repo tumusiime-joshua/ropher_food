@@ -15,6 +15,21 @@
         android:theme="@style/Theme.RopherFood"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".OrderTrackingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddMarketsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddCategoriesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewCategoriesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewMarketsActivity"
+            android:exported="true" />
+        <activity
             android:name=".ShoppingLocationActivity"
             android:exported="true" />
         <activity

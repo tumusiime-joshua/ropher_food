@@ -35,4 +35,17 @@ public class UrlLinks {
     public static final String update_food_item_status = UrlAddress + "update_food_item_status.php";
     public static final String view_cart = UrlAddress + "view_cart.php";
 
+    //Markets
+    public static String UrlViewMarkets = UrlAddress + "view_markets.php";
+    public static String UrlAddMarkets = UrlAddress + "add_market.php";
+    public static String UrlDeleteMarkets = UrlAddress + "delete_market.php";
+
+    //Categories
+    public static String UrlViewCategories = UrlAddress + "view_categories.php";
+    public static String UrlAddCategories = UrlAddress + "add_category.php";
+    public static String UrlDeleteCategories = UrlAddress + "delete_category.php";
+
+    //Order Progress
+    public static String UrlViewOrderProgress = UrlAddress + "view_order_progress.php";
+    public static String UrlUpdateOrderProgress = UrlAddress + "update_order_progress.php";
 }

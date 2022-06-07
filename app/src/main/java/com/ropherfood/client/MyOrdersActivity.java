@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -41,6 +42,7 @@ public class MyOrdersActivity extends AppCompatActivity implements SwipeRefreshL
     SwipeRefreshLayout swipeRefreshLayout;
     FinalOrdersListAdapter adapter;
     SharedPreferences sharedPreferences;
+    TextView noItemsToBeDisplayedTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +56,10 @@ public class MyOrdersActivity extends AppCompatActivity implements SwipeRefreshL
 
         swipeRefreshLayout.setOnRefreshListener(this);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        toolbar.setNavigationOnClickListener(v -> {
 
-                startActivity(new Intent(MyOrdersActivity.this, MainActivity.class));
-                finish();
-            }
+            startActivity(new Intent(MyOrdersActivity.this, MainActivity.class));
+            finish();
         });
 
     }
@@ -121,6 +120,8 @@ public class MyOrdersActivity extends AppCompatActivity implements SwipeRefreshL
 
                         progressDialog.dismiss();
                         displayAlertDialog(message);
+                        noItemsToBeDisplayedTextView.setVisibility(View.VISIBLE);
+                        recyclerView.setVisibility(View.GONE);
                     }
 
                 } catch (JSONException e) {
@@ -130,6 +131,8 @@ public class MyOrdersActivity extends AppCompatActivity implements SwipeRefreshL
 //                    Toast.makeText(MyOrdersActivity.this, response, Toast.LENGTH_LONG).show();
                     Log.e("TAG", response);
                     progressDialog.dismiss();
+                    noItemsToBeDisplayedTextView.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
 
                 }
             }
@@ -140,6 +143,8 @@ public class MyOrdersActivity extends AppCompatActivity implements SwipeRefreshL
                 displayAlertDialog("Failed to connect to sever");
                 Log.e("TAG", error.getMessage());
                 progressDialog.dismiss();
+                noItemsToBeDisplayedTextView.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
 
             }
         }){
@@ -168,6 +173,7 @@ public class MyOrdersActivity extends AppCompatActivity implements SwipeRefreshL
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         swipeRefreshLayout = findViewById(R.id.my_orders_SwipeRefreshLayout);
         toolbar = findViewById(R.id.my_orders_toolbar);
+        noItemsToBeDisplayedTextView = findViewById(R.id.my_orders_no_items_textView);
 
         sharedPreferences = getSharedPreferences("Account_Information", MODE_PRIVATE);
         setSupportActionBar(toolbar);

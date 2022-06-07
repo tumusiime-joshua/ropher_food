@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/drawable/ic_check_circle_outline.xml" value="0.20092592592592592" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/drawable/rounded_rectangle.xml" value="0.19846153846153847" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_about_us.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_add_food_item.xml" value="0.2" />
@@ -25,23 +26,29 @@
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_make_super_market_order.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_my_account.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_my_orders.xml" value="0.2" />
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_order_tracking.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_ordered_items_list.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_shopping_location.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_splash_screen.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_view_categories.xml" value="0.2" />
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_view_markets.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_view_order.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/employee_account_list_details.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/food_item_list_details.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/make_order_list_details.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/my_orders_list_details.xml" value="0.2" />
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/single_item_list_details.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/view_customer_orders_list_details.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/view_final_order_list_item.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/view_orders_category_list_details.xml" value="0.2" />
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/category_menu.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/employees_menu_item.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/food_items_menu.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/main_menu_items.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/make_order_category_menu.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/make_order_item_details_menu.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/make_super_market_order_menu.xml" value="0.2" />
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/markets_menu.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/my_account_menu.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/my_orders_menu.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/menu/view_customers_orders_menu_items.xml" value="0.2" />

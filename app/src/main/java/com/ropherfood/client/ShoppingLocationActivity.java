@@ -10,7 +10,7 @@ import android.widget.Button;
 
 public class ShoppingLocationActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button nakaseroBtn, nakawaBtn, setaBtn, kansangaBtn;
+    Button nakaseroBtn, nakawaBtn, seetaBtn, kansangaBtn;
     Toolbar toolbar;
 
     @Override
@@ -23,6 +23,9 @@ public class ShoppingLocationActivity extends AppCompatActivity implements View.
         toolbar.setNavigationOnClickListener(v -> finish());
 
         nakaseroBtn.setOnClickListener(this);
+        nakawaBtn.setOnClickListener(this);
+        seetaBtn.setOnClickListener(this);
+        kansangaBtn.setOnClickListener(this);
 
     }
 
@@ -30,7 +33,7 @@ public class ShoppingLocationActivity extends AppCompatActivity implements View.
 
         nakaseroBtn = findViewById(R.id.nakaseroBtn);
         nakawaBtn = findViewById(R.id.nakawaBtn);
-        setaBtn = findViewById(R.id.setaBtn);
+        seetaBtn = findViewById(R.id.seetaBtn);
         kansangaBtn = findViewById(R.id.kansangaBtn);
         toolbar = findViewById(R.id.shopping_location_toolbar);
         setSupportActionBar(toolbar);
@@ -44,7 +47,7 @@ public class ShoppingLocationActivity extends AppCompatActivity implements View.
         if(v.getId() == R.id.nakawaBtn)
             startActivity(new Intent(this, MakeOrdersCategoryActivity.class));
 
-        if(v.getId() == R.id.setaBtn)
+        if(v.getId() == R.id.seetaBtn)
             startActivity(new Intent(this, MakeOrdersCategoryActivity.class));
 
         if(v.getId() == R.id.kansangaBtn)
