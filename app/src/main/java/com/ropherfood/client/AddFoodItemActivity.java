@@ -14,7 +14,9 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -30,11 +32,13 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,7 +54,7 @@ public class AddFoodItemActivity extends AppCompatActivity implements View.OnCli
     String stringForEncodedImage, foodItemImageLabel;
     Intent intent;
     Toolbar toolbar;
-    Spinner categorySpinner;
+    Spinner categorySpinner, marketSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +65,10 @@ public class AddFoodItemActivity extends AppCompatActivity implements View.OnCli
 
         intentToSetValuesForUpdating();
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        loadCategoriesData();
+        loadMarketsData();
+
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         addFoodItemImageButton.setOnClickListener(this);
         updateFoodItemButton.setOnClickListener(this);
@@ -88,6 +90,134 @@ public class AddFoodItemActivity extends AppCompatActivity implements View.OnCli
         setSupportActionBar(toolbar);
 
         categorySpinner = findViewById(R.id.add_food_item_category_Spinner);
+        marketSpinner = findViewById(R.id.add_food_item_market_Spinner);
+
+
+    }
+
+    private void loadMarketsData() {
+
+        ArrayList<String> marketsList = new ArrayList<>();
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlLinks.UrlViewMarkets, response -> {
+
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                String success = jsonObject.getString("success");
+                String message = jsonObject.getString("message");
+                JSONArray jsonArray = jsonObject.getJSONArray("view_markets_array");
+
+                if(success.equals("1")){
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        String marketId = jsonObject1.getString("market_id");
+                        String marketName = jsonObject1.getString("market_name");
+
+                        marketsList.add(marketName);
+
+                    }
+
+                    ArrayAdapter<String>  marketsAdapter= new ArrayAdapter<>(AddFoodItemActivity.this, R.layout.support_simple_spinner_dropdown_item, marketsList );
+                    marketSpinner.setAdapter(marketsAdapter);
+
+                    progressDialog.dismiss();
+                    Log.e("TAG", response);
+
+                }else if(success.equals("0")){
+
+                    progressDialog.dismiss();
+                    displayAlertDialog(message);
+                    Log.e("TAG", response);
+                }
+
+            } catch (JSONException e) {
+
+                e.printStackTrace();
+                displayAlertDialog("Cannot display list.");
+                Log.e("TAG", response);
+                progressDialog.dismiss();
+
+            }
+        }, error -> {
+
+            displayAlertDialog("Failed to connect to sever");
+            Log.e("TAG", error.getMessage());
+            progressDialog.dismiss();
+
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
+    private void loadCategoriesData() {
+
+        ArrayList<String> categoriesList = new ArrayList<>();
+
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlLinks.UrlViewCategories, response -> {
+
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                String success = jsonObject.getString("success");
+                String message = jsonObject.getString("message");
+                JSONArray jsonArray = jsonObject.getJSONArray("view_category_array");
+
+                if(success.equals("1")){
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        String categoryId = jsonObject1.getString("category_id");
+                        String categoryName = jsonObject1.getString("category_name");
+
+                        categoriesList.add(categoryName);
+                    }
+
+                    ArrayAdapter<String>  categoriesAdapter= new ArrayAdapter<>(AddFoodItemActivity.this, R.layout.support_simple_spinner_dropdown_item, categoriesList);
+                    categorySpinner.setAdapter(categoriesAdapter);
+
+                    progressDialog.dismiss();
+                    Log.e("TAG", response);
+
+                }else if(success.equals("0")){
+
+                    progressDialog.dismiss();
+                    displayAlertDialog(message);
+                    Log.e("TAG", response);
+                }
+
+            } catch (JSONException e) {
+
+                e.printStackTrace();
+                displayAlertDialog("Cannot display list.");
+                Log.e("TAG", response);
+                progressDialog.dismiss();
+
+            }
+        }, error -> {
+
+            displayAlertDialog("Failed to connect to sever");
+            Log.e("TAG", error.getMessage());
+            progressDialog.dismiss();
+
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
     }
 
     private void intentToSetValuesForUpdating(){
@@ -305,7 +435,8 @@ public class AddFoodItemActivity extends AppCompatActivity implements View.OnCli
                 params.put("food_item_name", foodItemName.getText().toString());
                 params.put("food_item_price", foodItemPrice.getText().toString());
                 params.put("food_item_description", foodItemDescription.getText().toString());
-                params.put("food_item_category", categorySpinner.getSelectedItem().toString());
+                params.put("food_item_category", categorySpinner.getSelectedItem().toString().toUpperCase());
+                params.put("food_item_market", marketSpinner.getSelectedItem().toString().toUpperCase());
                 params.put("encoded_image", stringForEncodedImage);
                 params.put("image_label", foodItemImageLabel);
                 return params;

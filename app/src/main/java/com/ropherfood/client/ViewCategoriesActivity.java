@@ -67,7 +67,7 @@ public class ViewCategoriesActivity extends AppCompatActivity implements SwipeRe
                 JSONObject jsonObject = new JSONObject(response);
                 String success = jsonObject.getString("success");
                 String message = jsonObject.getString("message");
-                JSONArray jsonArray = jsonObject.getJSONArray("view_food_items_array");
+                JSONArray jsonArray = jsonObject.getJSONArray("view_category_array");
 
                 if(success.equals("1")){
 

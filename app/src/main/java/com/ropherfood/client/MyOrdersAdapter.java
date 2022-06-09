@@ -80,6 +80,40 @@ public class MyOrdersAdapter  extends RecyclerView.Adapter<MyOrdersAdapter.ViewH
             }
         });
 
+        holder.orderStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
+                builder.setMessage("Do you want see the order status ?");
+                builder.setCancelable(false);
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        builder.setCancelable(true);
+                    }
+                });
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent orderTrackingIntent = new Intent(holder.itemView.getContext(), OrderTrackingActivity.class);
+                        orderTrackingIntent.putExtra("id", list.get(position).orderId);
+                        holder.itemView.getContext().startActivity(orderTrackingIntent);
+
+                    }
+
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+            }
+        });
+
         holder.callItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -248,7 +282,7 @@ public class MyOrdersAdapter  extends RecyclerView.Adapter<MyOrdersAdapter.ViewH
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView orderId, foodItemName, foodItemQuantity, foodItemPrice, dateOrdered, callItem, deleteItem;
+        TextView orderId, foodItemName, foodItemQuantity, foodItemPrice, dateOrdered, orderStatus, callItem, deleteItem;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -257,6 +291,7 @@ public class MyOrdersAdapter  extends RecyclerView.Adapter<MyOrdersAdapter.ViewH
             foodItemQuantity = itemView.findViewById(R.id.my_order_list_detail_quantity_textView);
             foodItemPrice = itemView.findViewById(R.id.my_order_list_detail_price_textView);
             dateOrdered = itemView.findViewById(R.id.my_order_list_detail_date_ordered_textView);
+            orderStatus = itemView.findViewById(R.id.my_orders_list_detail_order_status_textView);
             callItem = itemView.findViewById(R.id.my_orders_list_detail_call_textView);
             deleteItem = itemView.findViewById(R.id.my_orders_list_detail_delete_textView);
         }

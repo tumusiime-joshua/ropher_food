@@ -17,70 +17,28 @@
         app:title="Choose Preferred Location"
         app:titleTextColor="#fff" />
 
-    <LinearLayout
-        android:layout_marginTop="20sp"
-        android:layout_below="@id/admin_home_toolbar"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/shopping_location_swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/shopping_location_toolbar">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shopping_location_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:layout_below="@id/shopping_location_toolbar"
+        android:id="@+id/shopping_location_no_items_textView"
+        android:text="There are no Items to be displayed."
+        android:textSize="25sp"
         android:gravity="center"
-        android:layout_margin="10dp">
+        android:visibility="gone"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="70sp"
-            android:textStyle="bold"
-            android:padding="20sp"
-            android:layout_margin="10dp"
-            android:text="Nakasero Market"
-            android:textColor="@color/white"
-            android:gravity="left|center"
-            android:textAlignment="gravity"
-            android:background="@color/white"
-            android:drawablePadding="20sp"
-            android:id="@+id/nakaseroBtn"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="70sp"
-            android:textStyle="bold"
-            android:layout_margin="10dp"
-            android:padding="20sp"
-            android:text="Nakawa Market"
-            android:textColor="@color/white"
-            android:gravity="left|center"
-            android:textAlignment="gravity"
-            android:background="@color/white"
-            android:drawablePadding="20sp"
-            android:id="@+id/nakawaBtn"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="70sp"
-            android:textStyle="bold"
-            android:layout_margin="10dp"
-            android:padding="20sp"
-            android:text="Seeta Market"
-            android:textColor="@color/white"
-            android:gravity="left|center"
-            android:textAlignment="gravity"
-            android:background="@color/white"
-            android:drawablePadding="20sp"
-            android:id="@+id/seetaBtn"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="70sp"
-            android:textStyle="bold"
-            android:layout_margin="10dp"
-            android:padding="20sp"
-            android:text="Kansanga Market"
-            android:textColor="@color/white"
-            android:gravity="left|center"
-            android:textAlignment="gravity"
-            android:background="@color/white"
-            android:drawablePadding="20sp"
-            android:id="@+id/kansangaBtn"/>
-
-    </LinearLayout>
 </LinearLayout>

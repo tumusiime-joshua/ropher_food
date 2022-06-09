@@ -50,6 +50,14 @@
                     android:textStyle="bold"
                     android:id="@+id/food_item_list_category_textView"/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Market"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:id="@+id/food_item_list_market_textView"/>
+
             </LinearLayout>
 
         </LinearLayout>

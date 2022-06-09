@@ -14,36 +14,36 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MakeOrdersCategoryListAdapter extends RecyclerView.Adapter<MakeOrdersCategoryListAdapter.ViewHolder> implements Filterable {
+public class ShoppingLocationAdapter extends RecyclerView.Adapter<ShoppingLocationAdapter.ViewHolder> implements Filterable {
 
-    ArrayList<CategoryData> list;
-    ArrayList<CategoryData> listCopy;
+    ArrayList<FoodItemsData> list;
+    ArrayList<FoodItemsData> listCopy;
 
-    public MakeOrdersCategoryListAdapter(ArrayList<CategoryData> list) {
+    public ShoppingLocationAdapter(ArrayList<FoodItemsData> list) {
         this.list = list;
         this.listCopy = list;
     }
 
     @NonNull
     @Override
-    public MakeOrdersCategoryListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ShoppingLocationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_orders_category_list_details, parent, false);
 
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MakeOrdersCategoryListAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.category.setText(list.get(position).category);
+    public void onBindViewHolder(@NonNull ShoppingLocationAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        holder.shoppingLocation.setText(list.get(position).market);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(holder.itemView.getContext(), CategoryItemsActivity.class);
+                Intent intent = new Intent(holder.itemView.getContext(), MakeOrdersCategoryActivity.class);
 
-                intent.putExtra("category", list.get(position).category);
-                intent.putExtra("shopping_location", list.get(position).shoppingLocation);
+                intent.putExtra("shopping_location", list.get(position).market);
 
                 holder.itemView.getContext().startActivity(intent);
             }
@@ -60,15 +60,14 @@ public class MakeOrdersCategoryListAdapter extends RecyclerView.Adapter<MakeOrde
         return null;
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView category;
+        TextView shoppingLocation;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            category = itemView.findViewById(R.id.view_orders_category_list_details_textView);
+            shoppingLocation = itemView.findViewById(R.id.view_orders_category_list_details_textView);
 
         }
     }

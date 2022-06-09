@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,6 +54,7 @@ public class FinalOrdersListAdapter extends RecyclerView.Adapter<FinalOrdersList
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
+
         holder.order_number.setText(list.get(position).order_number);
         holder.name.setText(list.get(position).name);
         holder.email.setText(list.get(position).email);
@@ -63,6 +65,15 @@ public class FinalOrdersListAdapter extends RecyclerView.Adapter<FinalOrdersList
         holder.total_amount.setText(list.get(position).total_amount);
         holder.payment_method.setText(list.get(position).payment_method);
         holder.date.setText(list.get(position).date);
+
+        if(!list.get(position).status.equals("1")){
+            holder.confirm.setVisibility(View.GONE);
+        }
+
+        if(list.get(position).accountType.equals("Customer")){
+            holder.confirm.setVisibility(View.GONE);
+            holder.delete.setVisibility(View.GONE);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +101,106 @@ public class FinalOrdersListAdapter extends RecyclerView.Adapter<FinalOrdersList
                         intent.putExtra("order_number", list.get(position).order_number);
 
                         holder.itemView.getContext().startActivity(intent);
+
+                    }
+
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+            }
+        });
+
+        holder.confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
+                builder.setMessage("Do you want to confirm this order ?");
+                builder.setCancelable(false);
+
+                builder.setPositiveButton("Yes", (dialog, which) -> {
+
+                    StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlLinks.UrlUpdateOrderProgress, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                String success = jsonObject.getString("success");
+                                String message = jsonObject.getString("message");
+
+                                if(success.equals("1")){
+
+                                    Toast.makeText(holder.itemView.getContext(), message, Toast.LENGTH_LONG).show();
+
+                                }else if(success.equals("0")){
+
+                                    Toast.makeText(holder.itemView.getContext(), message, Toast.LENGTH_LONG).show();
+
+                                }
+
+                            } catch (JSONException e) {
+
+                                e.printStackTrace();
+                                Log.e("TAG", response);
+                                Toast.makeText(holder.itemView.getContext(), "System error occurred.", Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                    }, error -> {
+
+                        Log.e("TAG", error.getMessage());
+                        Toast.makeText(holder.itemView.getContext(), "Failed to connect to internet.", Toast.LENGTH_LONG).show();
+
+                    }){
+
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+
+                            Map<String, String> params = new HashMap<>();
+                            params.put("order_number", list.get(position).order_number);
+                            params.put("status", "2");
+                            return params;
+                        }
+                    };
+
+                    RequestQueue requestQueue = Volley.newRequestQueue(holder.itemView.getContext());
+                    requestQueue.add(stringRequest);
+
+                });
+
+                builder.setNegativeButton("No", (dialog, which) -> builder.setCancelable(true));
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+
+        holder.orderStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
+                builder.setMessage("Do you want see the order status ?");
+                builder.setCancelable(false);
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        builder.setCancelable(true);
+                    }
+                });
+
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent orderTrackingIntent = new Intent(holder.itemView.getContext(), OrderTrackingActivity.class);
+                        orderTrackingIntent.putExtra("order_status", list.get(position).status);
+                        holder.itemView.getContext().startActivity(orderTrackingIntent);
 
                     }
 
@@ -226,7 +337,7 @@ public class FinalOrdersListAdapter extends RecyclerView.Adapter<FinalOrdersList
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView order_number, name, email, phone, address, total_items, total_orders, total_amount, payment_method, date, call, delete;
+        TextView order_number, name, email, phone, address, total_items, total_orders, total_amount, payment_method, orderStatus, confirm, date, call, delete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -240,6 +351,8 @@ public class FinalOrdersListAdapter extends RecyclerView.Adapter<FinalOrdersList
             total_amount = itemView.findViewById(R.id.view_final_order_list_item_total_cost);
             total_items = itemView.findViewById(R.id.view_final_order_list_item_total_items);
             payment_method = itemView.findViewById(R.id.view_final_order_list_item_payment_method);
+            confirm = itemView.findViewById(R.id.view_final_order_list_item_confirm_textView);
+            orderStatus = itemView.findViewById(R.id.view_final_order_list_item_order_status_textView);
             date = itemView.findViewById(R.id.view_final_order_list_item_date);
             call = itemView.findViewById(R.id.view_final_order_list_item_call);
             delete = itemView.findViewById(R.id.view_final_order_list_item_delete);

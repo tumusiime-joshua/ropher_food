@@ -5,6 +5,7 @@ public class CategoryData {
     String category;
     String categoryId;
     String categoryName;
+    String shoppingLocation;
 
     public CategoryData() {
     }

@@ -137,6 +137,20 @@
                 android:padding="5sp"
                 android:layout_marginRight="10sp"
                 android:drawableTint="@color/main_color"
+                android:id="@+id/my_orders_list_detail_order_status_textView"
+                android:text="Order Status"
+                android:visibility="gone"
+                android:textSize="23sp"
+                android:textColor="@color/main_color"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5sp"
+                android:layout_marginRight="10sp"
+                android:drawableTint="@color/main_color"
                 android:id="@+id/my_orders_list_detail_call_textView"
                 android:drawableLeft="@drawable/ic_phone"/>
 

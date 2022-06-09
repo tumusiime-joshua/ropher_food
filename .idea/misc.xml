@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Joshua/.gradle/caches/transforms-3/8ede57f4fbb52778d21f0a57bb4baf97/transformed/appcompat-1.4.2/res/layout/support_simple_spinner_dropdown_item.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/drawable/ic_check_circle_outline.xml" value="0.20092592592592592" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/drawable/rounded_rectangle.xml" value="0.19846153846153847" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_about_us.xml" value="0.2" />
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_add_categories.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_add_food_item.xml" value="0.2" />
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_add_markets.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_admin_home.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_cart.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_category_items.xml" value="0.2" />
@@ -30,6 +33,7 @@
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_ordered_items_list.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_shopping_location.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_splash_screen.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_view_all_customers_orders.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_view_categories.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_view_markets.xml" value="0.2" />
         <entry key="..\:/Users/Joshua/AndroidStudioProjects/RopherFood/app/src/main/res/layout/activity_view_order.xml" value="0.2" />

@@ -136,6 +136,7 @@ public class CategoryItemsActivity extends AppCompatActivity implements SwipeRef
 
                 Map<String, String> params = new HashMap<>();
                 params.put("category", getIntent().getStringExtra("category"));
+                params.put("shopping_location", getIntent().getStringExtra("shopping_location"));
                 return params;
 
             }

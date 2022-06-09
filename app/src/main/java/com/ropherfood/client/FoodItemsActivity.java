@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -38,6 +39,7 @@ public class FoodItemsActivity extends AppCompatActivity implements SwipeRefresh
     SwipeRefreshLayout swipeRefreshLayout;
     ArrayList<FoodItemsData> foodItemsList;
     FoodItemsListAdapter adapter;
+    TextView noItemsToDisplayTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +90,7 @@ public class FoodItemsActivity extends AppCompatActivity implements SwipeRefresh
                             String price = jsonObject1.getString("food_price");
                             String description = jsonObject1.getString("food_description");
                             String category = jsonObject1.getString("category");
+                            String market = jsonObject1.getString("market");
                             String image_path = jsonObject1.getString("image_path");
                             String image_address_path = jsonObject1.getString("image_address_path");
                             String status = jsonObject1.getString("status");
@@ -99,6 +102,7 @@ public class FoodItemsActivity extends AppCompatActivity implements SwipeRefresh
                             foodItemsData.price = price;
                             foodItemsData.description = description;
                             foodItemsData.category = category;
+                            foodItemsData.market = market;
                             foodItemsData.imagePath = image_path;
                             foodItemsData.status = status;
 
@@ -114,6 +118,8 @@ public class FoodItemsActivity extends AppCompatActivity implements SwipeRefresh
 
                         progressDialog.dismiss();
                         displayAlertDialog(message);
+                        noItemsToDisplayTextView.setVisibility(View.VISIBLE);
+                        swipeRefreshLayout.setVisibility(View.GONE);
                         Log.e("TAG", response);
                     }
 
@@ -121,6 +127,8 @@ public class FoodItemsActivity extends AppCompatActivity implements SwipeRefresh
 
                     e.printStackTrace();
                     displayAlertDialog("Cannot display list.");
+                    noItemsToDisplayTextView.setVisibility(View.VISIBLE);
+                    swipeRefreshLayout.setVisibility(View.GONE);
                     Log.e("TAG", response);
                     progressDialog.dismiss();
 
@@ -132,6 +140,8 @@ public class FoodItemsActivity extends AppCompatActivity implements SwipeRefresh
 
                 displayAlertDialog("Failed to connect to sever");
                 Log.e("TAG", error.getMessage());
+                noItemsToDisplayTextView.setVisibility(View.VISIBLE);
+                swipeRefreshLayout.setVisibility(View.GONE);
                 progressDialog.dismiss();
 
             }
@@ -152,6 +162,7 @@ public class FoodItemsActivity extends AppCompatActivity implements SwipeRefresh
 
         setSupportActionBar(toolbar);
         foodItemsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        noItemsToDisplayTextView = findViewById(R.id.food_items_no_items_textView);
     }
 
 

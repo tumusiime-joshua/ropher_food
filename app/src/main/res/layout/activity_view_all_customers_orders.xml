@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EmployeesActivity">
+    tools:context=".ViewAllCustomersOrdersActivity"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/main_color"
-        app:title="Accounts"
+        app:title="All Customer orders"
         app:titleTextColor="#fff"
         app:theme="@style/toolBarTheme"
         app:navigationIcon="@drawable/ic_arrow_back"
-        android:id="@+id/employees_account_list_toolbar"/>
+        android:id="@+id/view_all_customers_orders_toolbar"/>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/employees_account_list_SwipeRefreshLayout"
-        android:layout_below="@id/employees_account_list_toolbar">
+        android:id="@+id/view_all_customers_orders_SwipeRefreshLayout">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/employees_account_list_recyclerView"/>
+            android:id="@+id/view_all_customers_orders_recyclerView"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="15dp"
-        android:layout_below="@id/employees_account_list_toolbar"
-        android:id="@+id/employees_account_list_no_items_textView"
-        android:text="There are no Items to be displayed."
-        android:textSize="25sp"
-        android:gravity="center"
-        android:visibility="gone"/>
-
-</RelativeLayout>
+</LinearLayout>

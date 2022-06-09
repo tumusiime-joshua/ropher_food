@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -50,6 +51,8 @@ public class MakeOrdersCategoryActivity extends AppCompatActivity implements Swi
 
         list.clear();
         loadData();
+
+        Toast.makeText(this, getIntent().getStringExtra("shopping_location"), Toast.LENGTH_LONG).show();
 
         swipeRefreshLayout.setOnRefreshListener(this);
 
@@ -92,17 +95,20 @@ public class MakeOrdersCategoryActivity extends AppCompatActivity implements Swi
 
                             CategoryData categoryData = new CategoryData();
                             categoryData.category = category;
+                            categoryData.shoppingLocation = getIntent().getStringExtra("shopping_location").toString();
 
                             list.add(categoryData);
                         }
 
                         recyclerView.setAdapter(adapter);
                         progressDialog.dismiss();
+                        Log.e("TAG", response);
 
                     }else if(success.equals("0")){
 
                         progressDialog.dismiss();
                         displayAlertDialog(message);
+                        Log.e("TAG", response);
                     }
 
                 } catch (JSONException e) {
@@ -131,7 +137,8 @@ public class MakeOrdersCategoryActivity extends AppCompatActivity implements Swi
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 Map<String, String> params = new HashMap<>();
-                params.put("phone", sharedPreferences.getString("phone_number", ""));
+//                params.put("phone", sharedPreferences.getString("phone_number", ""));
+                params.put("shopping_location", getIntent().getStringExtra("shopping_location").toString());
                 return params;
             }
         };

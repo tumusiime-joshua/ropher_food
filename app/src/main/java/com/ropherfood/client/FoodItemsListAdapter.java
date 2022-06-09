@@ -55,6 +55,7 @@ public class FoodItemsListAdapter extends RecyclerView.Adapter<FoodItemsListAdap
         holder.foodName.setText(list.get(position).name);
         holder.foodPrice.setText(list.get(position).price);
         holder.foodCategory.setText(list.get(position).category);
+        holder.foodMarket.setText(list.get(position).market);
 
         if(list.get(position).imageAddress.isEmpty()){
 
@@ -429,7 +430,7 @@ public class FoodItemsListAdapter extends RecyclerView.Adapter<FoodItemsListAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView foodName, foodPrice, foodCategory, editItem, deleteItem, active, de_activate;
+        TextView foodName, foodPrice, foodCategory, foodMarket, editItem, deleteItem, active, de_activate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -438,6 +439,7 @@ public class FoodItemsListAdapter extends RecyclerView.Adapter<FoodItemsListAdap
             foodName = itemView.findViewById(R.id.food_item_list_detail_name_textView);
             foodPrice = itemView.findViewById(R.id.food_item_list_detail_price_textView);
             foodCategory = itemView.findViewById(R.id.food_item_list_category_textView);
+            foodMarket = itemView.findViewById(R.id.food_item_list_market_textView);
             editItem = itemView.findViewById(R.id.food_items_list_detail_edit_textView);
             deleteItem = itemView.findViewById(R.id.food_items_list_detail_delete_textView);
             active = itemView.findViewById(R.id.food_items_list_detail_active_textView);

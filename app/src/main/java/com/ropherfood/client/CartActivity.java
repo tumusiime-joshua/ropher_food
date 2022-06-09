@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -43,6 +44,7 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
     MyOrdersAdapter adapter;
     SharedPreferences sharedPreferences;
     Button cartConfirmOrders;
+    TextView noItemsToDisplayTextView;
 
     int total_orders, total_items, total_price;
 
@@ -124,6 +126,9 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
 
                         progressDialog.dismiss();
                         displayAlertDialog(message);
+                        noItemsToDisplayTextView.setVisibility(View.VISIBLE);
+                        swipeRefreshLayout.setVisibility(View.GONE);
+                        cartConfirmOrders.setVisibility(View.GONE);
                     }
 
                 } catch (JSONException e) {
@@ -133,6 +138,9 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
                     Toast.makeText(CartActivity.this, response, Toast.LENGTH_LONG).show();
                     Log.e("TAG", response);
                     progressDialog.dismiss();
+                    noItemsToDisplayTextView.setVisibility(View.VISIBLE);
+                    swipeRefreshLayout.setVisibility(View.GONE);
+                    cartConfirmOrders.setVisibility(View.GONE);
 
                 }
             }
@@ -143,6 +151,9 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
                 displayAlertDialog("Failed to connect to sever");
                 Log.e("TAG", error.getMessage());
                 progressDialog.dismiss();
+                noItemsToDisplayTextView.setVisibility(View.VISIBLE);
+                swipeRefreshLayout.setVisibility(View.GONE);
+                cartConfirmOrders.setVisibility(View.GONE);
 
             }
         }){
@@ -175,6 +186,7 @@ public class CartActivity extends AppCompatActivity implements SwipeRefreshLayou
 
         sharedPreferences = getSharedPreferences("Account_Information", MODE_PRIVATE);
         setSupportActionBar(toolbar);
+        noItemsToDisplayTextView = findViewById(R.id.cart_no_items_textView);
     }
 
     @Override

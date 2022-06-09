@@ -209,7 +209,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
                 progressDialog.dismiss();
                 displayAlertMessage("Failed to connect to internet.");
-                Log.e("TAG",error.getMessage());
+//                Log.e("TAG",error.getMessage());
             }
         }){
             @Override

@@ -96,6 +96,7 @@ public class MyOrdersActivity extends AppCompatActivity implements SwipeRefreshL
                             String total_items = jsonObject1.getString("total_items");
                             String total_amount = jsonObject1.getString("total_amount");
                             String payment_method = jsonObject1.getString("payment_method");
+                            String status = jsonObject1.getString("status");
                             String date = jsonObject1.getString("date");
 
                             FinalOrdersData finalOrdersData = new FinalOrdersData();
@@ -108,7 +109,9 @@ public class MyOrdersActivity extends AppCompatActivity implements SwipeRefreshL
                             finalOrdersData.total_items = total_items;
                             finalOrdersData.total_amount = total_amount;
                             finalOrdersData.payment_method = payment_method;
+                            finalOrdersData.status = status;
                             finalOrdersData.date = date;
+                            finalOrdersData.accountType = sharedPreferences.getString("account_Type", "");
 
                             list.add(finalOrdersData);
                         }
@@ -141,7 +144,7 @@ public class MyOrdersActivity extends AppCompatActivity implements SwipeRefreshL
             public void onErrorResponse(VolleyError error) {
 
                 displayAlertDialog("Failed to connect to sever");
-                Log.e("TAG", error.getMessage());
+//                Log.e("TAG", error.getMessage());
                 progressDialog.dismiss();
                 noItemsToBeDisplayedTextView.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);

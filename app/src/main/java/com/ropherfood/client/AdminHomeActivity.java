@@ -29,12 +29,7 @@ public class AdminHomeActivity extends AppCompatActivity implements View.OnClick
 
         }
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        toolbar.setNavigationOnClickListener(v -> finish());
 
         foodItemsButton.setOnClickListener(this);
         viewOrdersButton.setOnClickListener(this);
@@ -61,7 +56,7 @@ public class AdminHomeActivity extends AppCompatActivity implements View.OnClick
             startActivity(new Intent(AdminHomeActivity.this, FoodItemsActivity.class));
 
         if(v.getId() == R.id.view_orders_admin_button)
-            startActivity(new Intent(AdminHomeActivity.this, ViewOrdersActivity.class));
+            startActivity(new Intent(AdminHomeActivity.this, ViewAllCustomersOrdersActivity.class));
 
         if(v.getId() == R.id.employees_admin_button)
             startActivity(new Intent(AdminHomeActivity.this, EmployeesActivity.class));

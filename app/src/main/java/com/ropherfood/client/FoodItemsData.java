@@ -6,6 +6,7 @@ public class FoodItemsData {
     String price;
     String description;
     String category;
+    String market;
     String imagePath;
     String imageAddress;
     String status;

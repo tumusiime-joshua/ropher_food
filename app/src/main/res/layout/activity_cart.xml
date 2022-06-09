@@ -40,4 +40,15 @@
         android:text="Confirm Order(s)"
         android:textSize="20sp" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:layout_below="@id/cart_toolbar"
+        android:id="@+id/cart_no_items_textView"
+        android:text="There are no Items to be displayed."
+        android:textSize="25sp"
+        android:gravity="center"
+        android:visibility="gone"/>
+
 </RelativeLayout>

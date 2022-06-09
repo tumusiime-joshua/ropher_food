@@ -2,7 +2,6 @@ package com.ropherfood.client;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -52,81 +49,63 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
 
         holder.singleItemName.setText(list.get(position).categoryName);
 
-        holder.deleteItem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        holder.deleteItem.setOnClickListener(v -> {
 
-                final AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
-                builder.setMessage("Do you want to delete this item ?");
-                builder.setCancelable(false);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
+            builder.setMessage("Do you want to delete this item ?");
+            builder.setCancelable(false);
 
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+            builder.setPositiveButton("Yes", (dialog, which) -> {
 
-                        StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlLinks.UrlDeleteCategories, new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlLinks.delete_category, response -> {
 
-                                try {
-                                    JSONObject jsonObject = new JSONObject(response);
-                                    String success = jsonObject.getString("success");
-                                    String message = jsonObject.getString("message");
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        String success = jsonObject.getString("success");
+                        String message = jsonObject.getString("message");
 
-                                    if(success.equals("1")){
+                        if(success.equals("1")){
 
-                                        Toast.makeText(holder.itemView.getContext(), message, Toast.LENGTH_LONG).show();
+                            Toast.makeText(holder.itemView.getContext(), message, Toast.LENGTH_LONG).show();
 
-                                    }else if(success.equals("0")){
+                        }else if(success.equals("0")){
 
-                                        Toast.makeText(holder.itemView.getContext(), message, Toast.LENGTH_LONG).show();
+                            Toast.makeText(holder.itemView.getContext(), message, Toast.LENGTH_LONG).show();
 
-                                    }
+                        }
 
-                                } catch (JSONException e) {
+                    } catch (JSONException e) {
 
-                                    e.printStackTrace();
-                                    Log.e("TAG", response);
-                                    Toast.makeText(holder.itemView.getContext(), "System error occurred.", Toast.LENGTH_LONG).show();
-                                }
-
-                            }
-                        }, new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-
-                                Log.e("TAG", error.getMessage());
-                                Toast.makeText(holder.itemView.getContext(), "Failed to connect to internet.", Toast.LENGTH_LONG).show();
-
-                            }
-                        }){
-
-                            @Override
-                            protected Map<String, String> getParams() throws AuthFailureError {
-
-                                Map<String, String> params = new HashMap<>();
-                                params.put("category_Id", list.get(position).categoryId);
-                                return params;
-                            }
-                        };
-
-                        RequestQueue requestQueue = Volley.newRequestQueue(holder.itemView.getContext());
-                        requestQueue.add(stringRequest);
-
+                        e.printStackTrace();
+                        Log.e("TAG", response);
+                        Toast.makeText(holder.itemView.getContext(), "System error occurred. " + list.get(position).categoryId, Toast.LENGTH_LONG).show();
                     }
-                });
 
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                }, error -> {
+
+                    Log.e("TAG", error.getMessage());
+                    Toast.makeText(holder.itemView.getContext(), "Failed to connect to internet.", Toast.LENGTH_LONG).show();
+
+                }){
+
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    protected Map<String, String> getParams() throws AuthFailureError {
 
-                        builder.setCancelable(true);
+                        Map<String, String> params = new HashMap<>();
+                        params.put("category_id", list.get(position).categoryId);
+                        return params;
                     }
-                });
+                };
 
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-            }
+                RequestQueue requestQueue = Volley.newRequestQueue(holder.itemView.getContext());
+                requestQueue.add(stringRequest);
+
+            });
+
+            builder.setNegativeButton("No", (dialog, which) -> builder.setCancelable(true));
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
         });
     }
 
@@ -175,7 +154,7 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
         };
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView singleItemName, deleteItem;
 

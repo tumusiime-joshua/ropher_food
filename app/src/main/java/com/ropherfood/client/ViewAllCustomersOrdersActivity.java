@@ -1,16 +1,14 @@
 package com.ropherfood.client;
 
-import android.app.ProgressDialog;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,38 +21,37 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ViewOrdersActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
+public class ViewAllCustomersOrdersActivity extends AppCompatActivity  implements SwipeRefreshLayout.OnRefreshListener{
 
     Toolbar toolbar;
     RecyclerView recyclerView;
     ArrayList<FinalOrdersData> list;
     SwipeRefreshLayout swipeRefreshLayout;
     FinalOrdersListAdapter adapter;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_order);
+        setContentView(R.layout.activity_view_all_customers_orders);
 
         initialize();
 
-        list.clear();
-        loadData();
+        loadAllCustomersOrdersData();
 
         swipeRefreshLayout.setOnRefreshListener(this);
 
         toolbar.setNavigationOnClickListener(v -> finish());
-
+        
     }
 
-    private void loadData() {
+    private void loadAllCustomersOrdersData() {
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, UrlLinks.view_all_final_orders, response -> {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://dimensioning-sixths.000webhostapp.com/ropher_food/view_all_final_orders.php", response -> {
 
             try {
                 JSONObject jsonObject = new JSONObject(response);
@@ -118,6 +115,7 @@ public class ViewOrdersActivity extends AppCompatActivity implements SwipeRefres
             }
         }, error -> {
 
+            error.printStackTrace();
             displayAlertDialog("Failed to connect to sever");
             progressDialog.dismiss();
 
@@ -130,44 +128,21 @@ public class ViewOrdersActivity extends AppCompatActivity implements SwipeRefres
 
     private void initialize() {
 
-        recyclerView = findViewById(R.id.view_customer_orders_recyclerView);
-        swipeRefreshLayout = findViewById(R.id.view_customer_orders_SwipeRefreshLayout);
+        recyclerView = findViewById(R.id.view_all_customers_orders_recyclerView);
+        swipeRefreshLayout = findViewById(R.id.view_all_customers_orders_SwipeRefreshLayout);
         list = new ArrayList<>();
         adapter = new FinalOrdersListAdapter(list);
-        toolbar = findViewById(R.id.view_customer_orders_toolbar);
+        toolbar = findViewById(R.id.view_all_customers_orders_toolbar);
 
         setSupportActionBar(toolbar);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.view_customers_orders_menu_items, menu);
-
-        SearchView searchView = (SearchView) menu.findItem(R.id.view_customer_orders_search_menu_item).getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-
-                adapter.getFilter().filter(newText);
-                return true;
-            }
-        });
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
     public void onRefresh() {
 
         list.clear();
-        loadData();
+        loadAllCustomersOrdersData();
         swipeRefreshLayout.setRefreshing(false);
 
     }
@@ -183,4 +158,5 @@ public class ViewOrdersActivity extends AppCompatActivity implements SwipeRefres
         androidx.appcompat.app.AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+    
 }

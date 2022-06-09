@@ -66,7 +66,7 @@ public class ViewMarketsActivity extends AppCompatActivity implements SwipeRefre
                 JSONObject jsonObject = new JSONObject(response);
                 String success = jsonObject.getString("success");
                 String message = jsonObject.getString("message");
-                JSONArray jsonArray = jsonObject.getJSONArray("view_food_items_array");
+                JSONArray jsonArray = jsonObject.getJSONArray("view_markets_array");
 
                 if(success.equals("1")){
 
@@ -162,7 +162,7 @@ public class ViewMarketsActivity extends AppCompatActivity implements SwipeRefre
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if(item.getItemId() == R.id.food_items_add_menu_item)
+        if(item.getItemId() == R.id.markets_add_menu_item)
             startActivity(new Intent(ViewMarketsActivity.this, AddMarketsActivity.class));
 
         return super.onOptionsItemSelected(item);

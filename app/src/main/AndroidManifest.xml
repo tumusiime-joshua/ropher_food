@@ -15,6 +15,9 @@
         android:theme="@style/Theme.RopherFood"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ViewAllCustomersOrdersActivity"
+            android:exported="true" />
+        <activity
             android:name=".OrderTrackingActivity"
             android:exported="true" />
         <activity

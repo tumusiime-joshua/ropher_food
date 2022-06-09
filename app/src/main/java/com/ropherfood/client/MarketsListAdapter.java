@@ -107,7 +107,7 @@ public class MarketsListAdapter extends RecyclerView.Adapter<MarketsListAdapter.
                             protected Map<String, String> getParams() throws AuthFailureError {
 
                                 Map<String, String> params = new HashMap<>();
-                                params.put("market_Id", list.get(position).marketId);
+                                params.put("market_id", list.get(position).marketId);
                                 return params;
                             }
                         };

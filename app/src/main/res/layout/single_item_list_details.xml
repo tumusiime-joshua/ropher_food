@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Single Item Name"
-                android:textSize="25sp"
+                android:textSize="17sp"
                 android:id="@+id/single_items_list_detail_name_textView"/>
 
         </LinearLayout>

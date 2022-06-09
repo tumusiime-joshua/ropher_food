@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -46,6 +47,7 @@ public class EmployeesActivity extends AppCompatActivity implements SwipeRefresh
     SwipeRefreshLayout swipeRefreshLayout;
     EmployeesListAdapter adapter;
     ArrayList<EmployeeAccountData> list;
+    TextView noItemsToDisplayTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,7 @@ public class EmployeesActivity extends AppCompatActivity implements SwipeRefresh
 
         setSupportActionBar(toolbar);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        noItemsToDisplayTextView = findViewById(R.id.employees_account_list_no_items_textView);
     }
 
     @Override
@@ -164,6 +167,8 @@ public class EmployeesActivity extends AppCompatActivity implements SwipeRefresh
 
                         progressDialog.dismiss();
                         displayAlertDialog(message);
+                        noItemsToDisplayTextView.setVisibility(View.VISIBLE);
+                        swipeRefreshLayout.setVisibility(View.GONE);
                     }
 
                 } catch (JSONException e) {
@@ -172,6 +177,8 @@ public class EmployeesActivity extends AppCompatActivity implements SwipeRefresh
                     displayAlertDialog("Cannot display list.");
                     Log.e("TAG", response);
                     progressDialog.dismiss();
+                    noItemsToDisplayTextView.setVisibility(View.VISIBLE);
+                    swipeRefreshLayout.setVisibility(View.GONE);
 
                 }
             }
@@ -182,6 +189,8 @@ public class EmployeesActivity extends AppCompatActivity implements SwipeRefresh
                 displayAlertDialog("Failed to connect to sever");
                 Log.e("TAG", error.getMessage());
                 progressDialog.dismiss();
+                noItemsToDisplayTextView.setVisibility(View.VISIBLE);
+                swipeRefreshLayout.setVisibility(View.GONE);
 
             }
         });

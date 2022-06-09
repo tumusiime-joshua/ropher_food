@@ -37,15 +37,18 @@ public class UrlLinks {
 
     //Markets
     public static String UrlViewMarkets = UrlAddress + "view_markets.php";
-    public static String UrlAddMarkets = UrlAddress + "add_market.php";
+    public static String add_market = UrlAddress + "add_market.php";
     public static String UrlDeleteMarkets = UrlAddress + "delete_market.php";
 
     //Categories
     public static String UrlViewCategories = UrlAddress + "view_categories.php";
-    public static String UrlAddCategories = UrlAddress + "add_category.php";
-    public static String UrlDeleteCategories = UrlAddress + "delete_category.php";
+    public static String add_category = UrlAddress + "add_category.php";
+    public static String delete_category = UrlAddress + "delete_category.php";
 
     //Order Progress
-    public static String UrlViewOrderProgress = UrlAddress + "view_order_progress.php";
+    public static String view_orders_progress = UrlAddress + "view_order_progress.php";
     public static String UrlUpdateOrderProgress = UrlAddress + "update_order_progress.php";
+
+    //View All Markets
+    public static String view_all_markets = UrlAddress + "view_all_markets.php";
 }
